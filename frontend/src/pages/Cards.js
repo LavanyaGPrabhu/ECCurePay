@@ -90,8 +90,12 @@ const Cards = () => {
             if (data.status === 'success') {
                 setShowUnmasked(true); // Unmask card details
                 setIsDialogOpen(false); // Close dialog box
+                setPassword('');  // Clear password field
+                setError('');     // Clear any previous error message
             } else {
+                alert("incorrect");
                 setError('Incorrect password.');
+                setIsDialogOpen(false);
             }
         } catch (err) {
             console.error("Error verifying password:", err);

@@ -87,18 +87,25 @@
 }
 
 .dialog-box {
-  background: white;
+  background: var(--light-blue);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
-  width: 300px;
+  width: 400px;
+  height: 300px;
 }
 
 .dialog-box input {
   margin: 10px 0;
   width: 100%;
-  padding: 8px;
+  padding: 8px 0;
+}
+
+.dialog-box input {
+  margin: 10px 0;
+  width: 100%;
+  padding: 8px 0;
 }
 
 .submit_button,

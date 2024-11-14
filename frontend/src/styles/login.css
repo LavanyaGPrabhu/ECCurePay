@@ -11,7 +11,7 @@
   width: 300px;
   height: 60vh;
   padding: 40px;
-  padding-left: 55px;
+  /* padding-left: 55px; */
   background-color: var(--light-blue);
   text-align: center;
   border-radius: 30px;
@@ -20,8 +20,8 @@
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
   /* border: 3px solid var(--soft-gray); */
   border: 3px solid var(--primary-dark-blue);
-  overflow: scroll;
-  scrollbar-color: transparent transparent;  
+  /* overflow: scroll; */
+  /* scrollbar-color: transparent transparent;   */
 }
 
 .login_label{
@@ -88,7 +88,8 @@
 
 .submit_button{
   margin-top: 50px;
-  background-color: var(--primary-dark-blue); /* Light background on hover */
+  background-color: var(--primary-dark-blue);
+   /* Light background on hover */
   color: var(--soft-white); /* Dark blue text on hover */
 }
 

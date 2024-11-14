@@ -25,7 +25,32 @@ mongo = PyMongo(app)
 
 # Define the users collection
 users_collection = mongo.db.users
+  
+@app.route('/verify-password', methods=['POST'])
+def verify_password():
+    data = request.json
+    user_id = data.get('userId')
+    password = data.get('password')
 
+    if not user_id or not password:
+        return jsonify({'status': 'error', 'message': 'User ID and password are required.'}), 400
+
+    try:
+        # Fetch the user from the database using the provided user ID
+        user = users_collection.find_one({'_id': ObjectId(user_id)})
+        
+        if not user:
+            return jsonify({'status': 'error', 'message': 'User not found.'}), 404
+
+        # Check if the provided password matches the stored hashed password
+        if bcrypt.checkpw(password.encode('utf-8'), user['password']):
+            return jsonify({'status': 'success', 'message': 'Password verified successfully.'}), 200
+        else:
+            return jsonify({'status': 'error', 'message': 'Incorrect password.'}), 401
+
+    except Exception as e:
+        print(f"Error verifying password: {e}")
+        return jsonify({'status': 'error', 'message': 'Password verification failed.'}), 500
 
 
 @app.route('/signup', methods=['POST'])
@@ -75,7 +100,7 @@ def login():
     data = request.json
     username = data.get('username')
     password = data.get('password')
-    
+
     if not username or not password:
         return jsonify({'status': 'error', 'message': 'Username and password are required.'}), 400
 
@@ -163,7 +188,6 @@ def encrypt():
 def store_encrypted():
     data = request.get_json()
     user_id = data.get("userId")
-    
 
     if not user_id:
         return jsonify({"error": "User ID is required"}), 400
@@ -187,6 +211,8 @@ def store_encrypted():
     except Exception as e:
         print(f"Error storing card data: {e}")
         return jsonify({"error": "Failed to store card data"}), 500
+    
+
 
 @app.route('/retrieve-encrypted', methods=['POST'])
 def retrieve_encrypted():
