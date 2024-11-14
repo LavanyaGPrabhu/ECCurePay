@@ -1,0 +1,141 @@
+/* cards.css */
+
+.cards-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 10px auto;
+  /* background-color: #88878723; */
+  background-color: var(--light-blue);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+  border: var(--primary-dark-blue) 2px solid;
+  color: var(--primary-dark-blue);
+}
+
+.cards-container h2 {
+  font-size: 1.8em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cards-container ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;  /* Allow cards to wrap if there isn't enough space */
+  justify-content: space-around;  /* Distribute cards evenly */
+  padding: 0;
+}
+
+.cards-container li {
+  /* background-color: #dddada46; */
+  width: 300px;
+  padding: 10px;
+  /* margin-bottom: 10px; */
+  margin: 10px auto;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px -1px #000000,0 4px 8px rgba(0, 0, 0, 0.501);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  transition: transform 0.3s ease;
+}
+
+.cards-container li:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+}
+
+.cards-container li p {
+  font-size: 1.1em;
+  margin: 5px 0;
+}
+
+.cards-container .error {
+  color: red;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.cards-container button {
+  padding: 10px 20px;
+  margin: 20px 0;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cards-container button:hover {
+  background-color: #0056b3;
+}
+
+.heading{
+  margin-top: 0px;
+  padding-top: 0px;
+  padding-bottom: 15px;
+}
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-box {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 300px;
+}
+
+.dialog-box input {
+  margin: 10px 0;
+  width: 100%;
+  padding: 8px;
+}
+
+.submit_button,
+  .cancel_button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: var(--soft-white); /* White text for the buttons */
+    border: 2px solid var(--soft-white);
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+
+  .submit_button {
+    border-color: var(--primary-dark-blue); /* Darker teal for signup button */
+    color: var(--primary-dark-blue);
+  }
+
+  .cancel_button {
+    border-color: var(--accent-teal); /* Darker teal for signup button */
+    color: var(--accent-teal);
+  }
+  
+  .cancel_button:hover {
+    cursor: pointer;
+    background-color: var(--accent-teal); /* Dark teal background on hover */
+    color: var(--soft-white); /* White text on hover */
+    transform: translate(-2px,-2px); /* Lift the cards on hover */
+    box-shadow: 4px 4px 4px 1px #005c5c8e;
+  }  
+
+  .submit_button:hover {
+    cursor: pointer;
+    background-color: var(--primary-dark-blue); /* Light background on hover */
+    color: var(--soft-white); /* Dark blue text on hover */
+    transform: translate(-2px,-2px); /* Lift the cards on hover */
+    box-shadow: 4px 4px 4px 1px #04396d8e;
+  }  

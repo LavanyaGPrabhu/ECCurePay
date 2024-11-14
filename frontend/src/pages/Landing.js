@@ -55,7 +55,7 @@ const Landing = () => {
         content4="We value your feedback and are here to help."
         heading1="Contact Us"
         content5="Stay connected with us for updates and news."
-        phone1="+1-800-123-4567"
+        phone1="(+91)1234567890"
       />
     </div>
   )

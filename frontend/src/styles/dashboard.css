@@ -1,0 +1,108 @@
+/* Global styles to center the container on the page */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure the body takes the full height of the viewport */
+  margin: 0; /* Remove default body margin */
+  background-color: #f1f1f1; /* Soft light background */
+  font-family: 'Arial', sans-serif; /* Default font for body */
+}
+
+/* Box styling for the dashboard container */
+.dashboard-container {
+  padding: 30px;
+  max-width: 600px;
+  width: 100%; /* Ensure it takes the full width available up to the max-width */
+  background-color: var(--soft-white); /* White background for the dashboard container */
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow for depth */
+  transition: transform 0.2s ease-in-out; /* Smooth transition effect */
+}
+
+/* Hover effect on dashboard container */
+/* .dashboard-container:hover {
+  transform: translateY(-5px);
+} */
+
+/* Dashboard heading */
+.dashboard-container h2 {
+  font-size: 2.2em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--muted-gray); /* Muted gray color for heading */
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Button container for dashboard actions */
+.dashboard-container .dashboard-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  gap: 20px;
+}
+
+/* Button styling for dashboard actions */
+.dashboard-container .dashboard-buttons button {
+  padding: 15px 25px;
+  background-color: var(--primary-dark-blue); /* Dark Blue color for buttons */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 48%; /* Buttons take up 48% of the width, allowing for 2 columns */
+  max-width: 270px; /* Prevent buttons from becoming too wide */
+}
+
+/* Hover effect for dashboard buttons */
+.dashboard-container .dashboard-buttons button:hover {
+  background-color: var(--accent-teal); /* Darker teal on hover */
+  transform: translateY(-3px); /* Slight lift effect */
+}
+
+/* Focus effect when the button is clicked */
+.dashboard-container .dashboard-buttons button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.5); /* Focus shadow with green tint */
+}
+
+/* Error styling for any validation error or issue */
+.dashboard-container .error {
+  color: red;
+  font-size: 1.1em;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Responsive layout for smaller screens (Optional) */
+@media (max-width: 600px) {
+  /* Adjust dashboard container padding for small screens */
+  .dashboard-container {
+    padding: 20px;
+    max-width: 95%; /* Increase width for smaller screens */
+  }
+
+  /* Make the heading smaller on smaller screens */
+  .dashboard-container h2 {
+    font-size: 1.8em;
+  }
+
+  /* Stack buttons vertically on smaller screens */
+  .dashboard-container .dashboard-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Adjust button size and width on smaller screens */
+  .dashboard-container .dashboard-buttons button {
+    width: 100%; /* Full width buttons on small screens */
+    max-width: none; /* Remove max width constraint */
+  }
+}

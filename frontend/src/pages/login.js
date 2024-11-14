@@ -38,7 +38,7 @@ const Login = () => {
             if (data.status === 'success') {
                 console.log("Login successful");
                 setUserId(data.userId); // Store userId in context
-                navigate('/CardPage');
+                navigate('/dashboard');
             } else {
                 alert(data.message); // Show the error message
             }

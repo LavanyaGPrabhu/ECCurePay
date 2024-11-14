@@ -7,11 +7,11 @@ const Contact = (props) => {
     <div className="contact-contact20 thq-section-padding">
       <div className="contact-max-width thq-section-max-width">
         <div className="contact-section-title">
-          <span className="thq-body-small">{props.content2}</span>
           <div className="contact-content1">
             <h2 className="thq-heading-2">{props.heading1}</h2>
             <p className="contact-text3 thq-body-large">{props.content1}</p>
           </div>
+          <span className="thq-body-small" style={{marginTop:'-10px'}}>{props.content2}</span>
         </div>
         <div className="contact-row">
           <div className="contact-content2">

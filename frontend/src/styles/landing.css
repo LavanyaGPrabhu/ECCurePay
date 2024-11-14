@@ -1,19 +1,31 @@
-/* Landing page container */
-.landing {
-    background-color: black;
-    color: white;
+:root {
+    --primary-dark-blue: #003366;  /* Dark Blue for formal accents and headers */
+    --light-blue: #E0F0FF;         /* Soft Light Blue for backgrounds */
+    --soft-gray: #F4F4F4;          /* Neutral Soft Gray for background areas */
+    --accent-teal: #006666;        /* Darker Teal for emphasis */
+    --muted-gray: #333333;         /* Dark Gray for text */
+    --light-gray: #CCCCCC;         /* Light Gray for borders and subtle backgrounds */
+    --soft-white: #FFFFFF;         /* Soft White for text on darker backgrounds */
+  }
+  
+  /* Landing page container */
+  .landing {
+    /* background: var(--light-blue); */
+    background: linear-gradient(to top, var(--light-gray), var(--light-blue));
+    color: var(--muted-gray);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: Arial, sans-serif;
-}
-
-/* Navbar styling */
-.navbar {
+    padding-top: 100px; /* Adjusted to avoid overlap with fixed navbar */
+  }
+  
+  /* Navbar styling */
+  .navbar {
     width: 100%;
-    background-color: black; /* Black background for navbar */
+    background-color: var(--primary-dark-blue); /* Dark Blue background for navbar */
     display: flex;
     justify-content: space-between; /* Space items evenly between left and right */
     align-items: center;
@@ -21,78 +33,92 @@
     position: fixed;
     top: 0;
     z-index: 100; /* Ensure navbar stays on top */
-}
+  }
 
-.navbar_logo {
-    color: #ffffff;
+  .navbar_logo {
+    color: var(--soft-white);
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
-}
-
-.navbar_links {
+    margin-left: 50px;
+  }
+  
+  .navbar_links {
     list-style: none;
     display: flex;
     gap: 25px; /* Increased gap for better spacing */
     position: relative;
     left: -5%;
-}
-
-.navbar_links li {
-    color: #ffffff;
+  }
+  
+  .navbar_links li {
+    color: var(--soft-white);
     cursor: pointer;
     font-size: 1rem;
     transition: color 0.3s;
-}
-
-.navbar_links li:hover {
-    color: #ff7f50;
-}
-
-/* Main heading and paragraph */
-.main_heading {
+  }
+  
+  .navbar_links li:hover {
+    color: var(--accent-teal); /* Accent color on hover */
+  }
+  
+  /* Main heading and paragraph */
+  .main_heading {
     font-size: 2.5rem;
-    color: #ffffff;
+    color: var(--primary-dark-blue); ;
     margin-top: 120px; /* Adjusted margin to avoid overlap with navbar */
     text-align: center;
-}
-
-.para {
+  }
+  
+  .para {
     font-size: 1.2rem;
-    color: #b3b3b3;
+    color: var(--muted-gray); /* More readable text color */
     margin-bottom: 30px;
     text-align: center;
     max-width: 80%;
-}
-
-/* Buttons */
-.buttons_landing {
+  }
+  
+  /* Buttons */
+  .buttons_landing {
     display: flex;
     gap: 15px;
-}
-
-.login_button,
-.signup_button {
+  }
+  
+  .login_button,
+  .signup_button {
     padding: 10px 20px;
     font-size: 1rem;
-    color: white;
-    border: 2px solid #ffffff;
+    color: var(--soft-white); /* White text for the buttons */
+    border: 2px solid var(--soft-white);
     background-color: transparent;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     border-radius: 5px;
-}
+    margin-bottom: 15px;
+  }
 
-.login_button:hover {
-    background-color: #ffffff;
-    color: black;
-}
+  .login_button {
+    border-color: var(--primary-dark-blue); /* Darker teal for signup button */
+    color: var(--primary-dark-blue);
+  }
 
-.signup_button {
-    border-color: #ff7f50;
-}
+  .signup_button {
+    border-color: var(--accent-teal); /* Darker teal for signup button */
+    color: var(--accent-teal);
+  }
+  
+  .signup_button:hover {
+    cursor: pointer;
+    background-color: var(--accent-teal); /* Dark teal background on hover */
+    color: var(--soft-white); /* White text on hover */
+    transform: translate(-2px,-2px); /* Lift the cards on hover */
+    box-shadow: 4px 4px 4px 1px #005c5c8e;
+  }  
 
-.signup_button:hover {
-    background-color: #ff7f50;
-    color: black;
-}
+  .login_button:hover {
+    cursor: pointer;
+    background-color: var(--primary-dark-blue); /* Light background on hover */
+    color: var(--soft-white); /* Dark blue text on hover */
+    transform: translate(-2px,-2px); /* Lift the cards on hover */
+    box-shadow: 4px 4px 4px 1px #04396d8e;
+  }  

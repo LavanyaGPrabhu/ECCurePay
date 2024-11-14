@@ -75,7 +75,7 @@ def login():
     data = request.json
     username = data.get('username')
     password = data.get('password')
-
+    
     if not username or not password:
         return jsonify({'status': 'error', 'message': 'Username and password are required.'}), 400
 
@@ -134,16 +134,25 @@ def decrypt_message(private_key, encrypted_data):
 @app.route('/encrypt', methods=['POST'])
 def encrypt():
     data = request.get_json()
+    card_network = data['cardNetwork']
+    card_type = data['cardType']
     card_number = data['cardNumber']
+    card_holder_name = data['cardHolderName']
     expiry_date = data['expiryDate']
     cvv = data['cvv']
     
+    encrypted_card_network = encrypt_message(encryption_public_key, card_network)
+    encrypted_card_type = encrypt_message(encryption_public_key, card_type)
     encrypted_card_number = encrypt_message(encryption_public_key, card_number)
+    encrypted_card_holder_name = encrypt_message(encryption_public_key, card_holder_name)
     encrypted_expiry_date = encrypt_message(encryption_public_key, expiry_date)
     encrypted_cvv = encrypt_message(encryption_public_key, cvv)
     
     return jsonify({
+        "encrypted_card_network": encrypted_card_network,
+        "encrypted_card_type": encrypted_card_type,
         "encrypted_card_number": encrypted_card_number,
+        "encrypted_card_holder_name": encrypted_card_holder_name,
         "encrypted_expiry_date": encrypted_expiry_date,
         "encrypted_cvv": encrypted_cvv
     })
@@ -154,12 +163,16 @@ def encrypt():
 def store_encrypted():
     data = request.get_json()
     user_id = data.get("userId")
+    
 
     if not user_id:
         return jsonify({"error": "User ID is required"}), 400
 
     encrypted_data = {
+        "encrypted_card_network": data['encrypted_card_network'],
+        "encrypted_card_type": data['encrypted_card_type'],
         "encrypted_card_number": data['encrypted_card_number'],
+        "encrypted_card_holder_name": data['encrypted_card_holder_name'],
         "encrypted_expiry_date": data['encrypted_expiry_date'],
         "encrypted_cvv": data['encrypted_cvv']
     }
@@ -174,8 +187,6 @@ def store_encrypted():
     except Exception as e:
         print(f"Error storing card data: {e}")
         return jsonify({"error": "Failed to store card data"}), 500
-    
-
 
 @app.route('/retrieve-encrypted', methods=['POST'])
 def retrieve_encrypted():
@@ -203,16 +214,25 @@ def retrieve_encrypted():
 @app.route('/decrypt', methods=['POST'])
 def decrypt():
     data = request.get_json()
+    encrypted_card_network = data['encryptedCardNetwork']
+    encrypted_card_type = data['encryptedCardType']
     encrypted_card_number = data['encryptedCardNumber']
+    encrypted_card_holder_name = data['encryptedCardHolderName']
     encrypted_expiry_date = data['encryptedExpiryDate']
     encrypted_cvv = data['encryptedCvv']
 
+    decrypted_card_network = decrypt_message(encryption_private_key, encrypted_card_network)
+    decrypted_card_type = decrypt_message(encryption_private_key, encrypted_card_type)
     decrypted_card_number = decrypt_message(encryption_private_key, encrypted_card_number)
+    decrypted_card_holder_name = decrypt_message(encryption_private_key, encrypted_card_holder_name)
     decrypted_expiry_date = decrypt_message(encryption_private_key, encrypted_expiry_date)
     decrypted_cvv = decrypt_message(encryption_private_key, encrypted_cvv)
 
     return jsonify({
+        "decrypted_card_network": decrypted_card_network,
+        "decrypted_card_type": decrypted_card_type,
         "decrypted_card_number": decrypted_card_number,
+        "decrypted_card_holder_name": decrypted_card_holder_name,
         "decrypted_expiry_date": decrypted_expiry_date,
         "decrypted_cvv": decrypted_cvv
     })
@@ -234,7 +254,10 @@ def retrieve_decrypted():
             decrypted_cards = []
             for card in user_data["cards"]:
                 decrypted_card = {
+                    "card_network": decrypt_message(encryption_private_key, card["encrypted_card_network"]),
+                    "card_type": decrypt_message(encryption_private_key, card["encrypted_card_type"]),
                     "card_number": decrypt_message(encryption_private_key, card["encrypted_card_number"]),
+                    "card_holder_name": decrypt_message(encryption_private_key, card["encrypted_card_holder_name"]),
                     "expiry_date": decrypt_message(encryption_private_key, card["encrypted_expiry_date"]),
                     "cvv": decrypt_message(encryption_private_key, card["encrypted_cvv"])
                 }

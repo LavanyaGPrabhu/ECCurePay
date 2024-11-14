@@ -1,93 +1,114 @@
-
 .body {
-    background-color: black;    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(to top, var(--light-gray), var(--light-blue));
+}
 
-  .login_box{
-    width: 300px;
-    height: 60vh;
-    padding: 40px;
-    padding-left: 55px;
-    background-color: transparent;
-    text-align: center;
-    border-radius: 30px;
-    box-shadow: 10px 10px 10px 0 rgba(177, 0, 0, 0.5);
-    border: 3px solid rgb(255, 255, 255);
-    overflow: scroll;
-    scrollbar-color: transparent transparent;
-    
-  }
+.login_box{
+  width: 300px;
+  height: 60vh;
+  padding: 40px;
+  padding-left: 55px;
+  background-color: var(--light-blue);
+  text-align: center;
+  border-radius: 30px;
+  /* box-shadow: 10px 10px 10px 0 rgba(177, 0, 
+  0, 0.5); */
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+  /* border: 3px solid var(--soft-gray); */
+  border: 3px solid var(--primary-dark-blue);
+  overflow: scroll;
+  scrollbar-color: transparent transparent;  
+}
 
-  .login_label{
-    font-size: 40px;
-    font-family: 'Courier New', Courier, monospace;
-    background: linear-gradient(135deg, #ffffff, #ffffff);
-    background-clip: text;
-    color: transparent;
-    font-weight: 600;
-  }
-  .login_label_sep{
-    width: 30%;
-    height: 3px;
-    border: 0px solid white;
-    background-color: white;
-    margin: 20px auto 40px auto;
-  }
-  .f_p{
-    display: flex;
-  }
-  .forgot_password{
-    color: white;
-    margin-left: 49%;
-  }
-  .forgot_password:hover{
-    cursor: pointer;
-  }
+.login_label{
+  font-size: 40px;
+  font-family: 'Courier New', Courier, monospace;
+  /* background: linear-gradient(135deg, var(--primary-dark-blue), #ffffff); */
+  background-clip: text;
+  color: var(--primary-dark-blue);
+  font-weight: 600;
+}
+.login_label_sep{
+  width: 41%;
+  height: 3px;
+  border: 0px solid;
+  background-color: var(--primary-dark-blue);
+  margin: 5px auto 40px auto;
+  padding-right: -1px;
+  padding-left: 2px;
+}
+.f_p{
+  display: flex;
+}
+.forgot_password{
+  color: var(--primary-dark-blue);
+  margin-left: 49%;
+}
+.forgot_password:hover{
+  cursor: pointer;
+}
+
 .user_input1::placeholder, .user_input2::placeholder{
     font-size: 16px;
     padding-left: 10px;
 }
-  .user_input1, .user_input2{
-    width: 80%;
-    height: 40px;
-    margin: 10px;
-    font-size: 18px;
-    border-radius: 10px;
-    padding-left: 10px;
-    font-family: 'Times New Roman', Times, serif;
-  }
+
+.user_input1, .user_input2{
+  width: 80%;
+  height: 40px;
+  margin: 10px;
+  font-size: 18px;
+  border-radius: 10px;
+  padding-left: 10px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .buttons{
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .submit_button, .cancel_button{
-    margin-top: 10px;
-    width: 80%;
-    height: 50px;
-    border-radius: 10px;
-    font-size: 18px;
-    font-family:   sans-serif;
-    font-weight: 600;
-    border: none;
-    overflow: hidden;
+  margin-top: 10px;
+  width: 80%;
+  height: 50px;
+  border-radius: 10px;
+  background-color: transparent;
+  font-size: 18px;
+  font-family:   sans-serif;
+  font-weight: 600;
+  border: none;
+  overflow: hidden;
 }
 
 .submit_button{
-    margin-top: 50px;
-    background-color: #008CBA;
-    color: white;
+  margin-top: 50px;
+  background-color: var(--primary-dark-blue); /* Light background on hover */
+  color: var(--soft-white); /* Dark blue text on hover */
+}
 
+.cancel_button {
+  background-color: var(--accent-teal); /* Dark teal background on hover */
+  color: var(--soft-white); /* White text on hover */
 }
-.submit_button:hover, .cancel_button:hover{
-    cursor: pointer;
-}
+
+.cancel_button:hover {
+  cursor: pointer;
+  transform: translate(-2px,-2px); /* Lift the cards on hover */
+  box-shadow: 4px 4px 4px 1px #005c5c8e;
+}  
+
+.submit_button:hover {
+  cursor: pointer;
+  transform: translate(-2px,-2px); /* Lift the cards on hover */
+  box-shadow: 4px 4px 4px 1px #04396d8e;
+} 
+
 .submit_button:active, .cancel_button:active{
-    transform: scale(0.9);
+  transform: scale(0.9);
 }
