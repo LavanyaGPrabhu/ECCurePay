@@ -19,12 +19,12 @@ body {
   
   .about-us h1 {
     font-size: 3em; /* Increased font size */
-    color: #000;
+    color: var(--primary-dark-blue);
   }
   
   .about-us p {
     font-size: 1.3em; /* Increased font size */
-    color: #000000;
+    color: var(--primary-dark-blue);
   }
   
   .team {
@@ -35,7 +35,7 @@ body {
   .team h2 {
     font-size: 2.5em; /* Increased font size */
     margin-top: 50px;
-    color: #000;
+    color: var(--primary-dark-blue);
 
   }
   
@@ -50,12 +50,14 @@ body {
   .team-member {
     width: 250px; /* Maintain a consistent width */
     text-align: center;
-    background-color: #000000; /* Darker background for contrast */
+    color: var(--primary-dark-blue); /* Darker background for contrast */
     box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1), 
                 0px 6px 20px rgba(255, 255, 255, 0.15); /* Shadow effect */
+    background-color: var(--light-blue); /* Red background color */
     padding: 30px; /* Adjusted padding for better spacing */
     border-radius: 12px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 10px;
+    transition: 0.3s ease;
     height: auto; /* Auto height to adjust based on content */
     min-height: 220px; /* Set a minimum height to avoid squashing */
     display: flex;
@@ -64,9 +66,10 @@ body {
   }
   
   .team-member:hover {
-    background-color: #d82d2d;
-    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.3), 
-                0px 8px 30px rgba(255, 255, 255, 0.4); /* Enhanced shadow on hover */
+    /* background-color: #d82d2d; */
+    transform: translateY(-5px); /* Move the card up slightly on hover */
+    box-shadow: 0px 4px 12px rgba(68, 26, 26, 0.566), 
+                0px 8px 30px rgba(255, 255, 255, 0.762); /* Enhanced shadow on hover */
   }
   
   .team-member h3 {
@@ -76,7 +79,8 @@ body {
   
   .team-member p {
     font-size: 1.2em; /* Increased font size for readability */
-    color: #dfdada;
+    /* color: #dfdada; */
+    color: var(--primary-dark-blue);
     margin: 0;
   }
   
