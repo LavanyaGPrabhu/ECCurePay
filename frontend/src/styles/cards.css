@@ -21,6 +21,7 @@
 .cards-container ul {
   list-style: none;
   display: flex;
+  gap: 20px;
   flex-wrap: wrap;  /* Allow cards to wrap if there isn't enough space */
   justify-content: space-around;  /* Distribute cards evenly */
   padding: 0;
@@ -33,7 +34,7 @@
   /* margin-bottom: 10px; */
   margin: 10px auto;
   border-radius: 8px;
-  box-shadow: 5px 5px 5px -1px #000000,0 4px 8px rgba(0, 0, 0, 0.501);
+  box-shadow: 5px 5px 5px -1px #000000,4px 4px 8px rgba(0, 0, 0, 0.501);
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   transition: transform 0.3s ease;
 }
